@@ -1,0 +1,38 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  public-edition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run unit tests
+        run: |
+          PYTHONPATH="$GITHUB_WORKSPACE/public-edition/sxlb/scripts:$GITHUB_WORKSPACE/public-edition/sxlb/tests" \
+            python -m unittest discover -s "$GITHUB_WORKSPACE/public-edition/sxlb/tests"
+      - name: Scan private path patterns
+        run: |
+          private_user_path="/Users/"'dage'
+          private_cloud='i''Cloud'
+          private_notes='Ob''sidian'
+          private_worklogs='Codex_''Worklogs'
+          private_chat='ChatGPT_''Record'
+          pattern="${private_user_path}|${private_cloud}|${private_notes}|${private_worklogs}|${private_chat}"
+          ! grep -R -n -E "$pattern" \
+            "$GITHUB_WORKSPACE/public-edition" \
+            "$GITHUB_WORKSPACE/docs" \
+            "$GITHUB_WORKSPACE/README.md"
+      - name: Scan credential examples
+        run: |
+          ! grep -R -n -E 'actual_(token|secret|password|api_key)|BEGIN (RSA|OPENSSH|EC) PRIVATE KEY' \
+            "$GITHUB_WORKSPACE/public-edition" \
+            "$GITHUB_WORKSPACE/docs" \
+            "$GITHUB_WORKSPACE/README.md"

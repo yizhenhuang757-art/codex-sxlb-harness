@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "description": "Machine-readable family recall index for sxlb intake, planning, and dispatch. This is candidate recall only; execution remains with six departments under allowlist.md and mapping.md.",
+  "max_candidates": 3,
+  "families": [
+    {
+      "family": "family:sxlb-governance",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "吏部 / 太子",
+      "boundary": "SXLB mode, dispatch gate, restart/worklog recall, memory routing, or governed case-support candidate; does not replace the legal SXLB chain.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["sxlb", "三省六部", "朝堂", "门下复核", "尚书派发", "案卷", "国史馆", "restart", "worklog", "memory gateway", "召回", "治理模式", "退朝"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:skill-governance",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "吏部",
+      "boundary": "Skill creation, installation, audit, trigger mechanics, allowlist, mapping, inventory, or skill documentation candidate; discovery does not approve install or allowlist expansion.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["skill", "skills", "skill trigger", "skill mechanism", "skill onboarding", "onboard skill", "installed skill", "new skill", "skill 调用", "调用 skill", "技能", "技能调用", "新增 skill", "安装 skill", "接入 skill", "触发机制", "allowlist", "mapping", "inventory", "skill inventory", "clan", "family", "技能治理"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:superpowers",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "host / 三省",
+      "boundary": "Engineering process-method candidate such as brainstorming, TDD, debugging, verification, worktrees, plans, or code-review workflow; use only when the concrete skill trigger fits.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["superpowers", "brainstorming", "tdd", "test driven", "debugging", "verification", "code review", "worktree", "implementation plan", "复核", "调试", "测试驱动", "代码审查", "工作树", "计划"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:system",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "host",
+      "boundary": "Host/system capability candidate such as OpenAI docs, image generation, plugin creation, or skill creation; host instructions outrank SXLB.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["openai docs", "openai api", "chatgpt", "image generation", "generate image", "plugin creator", "skill creator", "OpenAI 文档", "图像生成", "插件创建", "创建 skill"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:reference-experimental",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "吏部",
+      "boundary": "Ontology or experimental capability-pattern candidate; default to reference-only until formally promoted.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["ontology", "experimental capability", "reference pattern", "hanlinyuan", "翰林院", "参考模式", "实验能力", "本体"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:reasoning-research",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "中书省",
+      "boundary": "Expert simulation, strategic framing, or research-reasoning candidate; use as analysis input, not final authority.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["best minds", "expert", "strategy", "world class", "top expert", "最强大脑", "顶级专家", "世界级", "谁最懂", "策略判断"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:plugin/browser",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "工部 / 刑部",
+      "boundary": "Localhost, file URL, screenshot, click/type, and visual smoke-test candidates only; does not grant external Chrome/profile authority.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["localhost", "file url", "browser", "screenshot", "click", "type", "playwright", "visual smoke", "网页调试", "本地网页", "截图", "点击", "浏览器验证"],
+      "negative_triggers": ["logged-in chrome", "existing chrome tab", "outlook", "zotero"]
+    },
+    {
+      "family": "family:plugin/chrome",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "兵部",
+      "boundary": "Authenticated/profile-dependent Chrome workflow candidate; diagnostics still use Chrome DevTools or Browser when that is the actual task.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["chrome profile", "logged-in chrome", "existing tab", "upload file", "authenticated website", "已登录", "登录态", "现有标签页", "上传文件", "网页表单"],
+      "negative_triggers": ["localhost only", "unit test"]
+    },
+    {
+      "family": "family:plugin/product-design",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "礼部 / 工部",
+      "boundary": "Product/design context, UX audit, prototype, or screenshot/live-URL-to-code candidate; execution follows product-design skill prerequisites.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["product design", "ux", "ui", "prototype", "design qa", "screenshot to code", "live url", "mockup", "产品设计", "原型", "设计审查", "界面", "截图转代码"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:plugin/outlook-email",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "兵部 / 礼部",
+      "boundary": "Outlook triage, reply drafting, task extraction, shared mailbox, or subscription cleanup candidate; send/draft boundaries follow Outlook skills.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["outlook", "email", "inbox", "reply draft", "shared mailbox", "subscription", "mail triage", "邮件", "收件箱", "回复草稿", "共享邮箱", "退订"],
+      "negative_triggers": ["spark mail"]
+    },
+    {
+      "family": "family:plugin/zotero",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "户部",
+      "boundary": "Zotero metadata, library search, citation, BibTeX, and reading/research evidence candidate; library writes/imports need explicit confirmation.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["zotero", "citation", "bibtex", "bibliography", "literature", "paper metadata", "文献", "引用", "题录", "书目", "论文元数据"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:toefl",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "礼部 / 户部",
+      "boundary": "TOEFL item review, speaking score, writing sentence-building, daily loop, or evidence tracking candidate; TOEFL evidence stays in TOEFL workflow surfaces.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["toefl", "speaking score", "listening review", "reading review", "writing sentence", "pike", "托福", "口语评分", "听力复盘", "阅读复盘", "句子改写"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:plugin/computer-use",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "兵部 / 刑部 / 门下省",
+      "boundary": "Fallback local Mac app UI-control candidate when no dedicated plugin, connector, structured API, Browser, or Chrome route can complete the task.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["computer use", "local mac app", "desktop app", "gui control", "no api", "click local app", "本地 app", "桌面应用", "图形界面", "没有 api", "电脑操作"],
+      "negative_triggers": ["browser", "chrome", "outlook", "zotero"]
+    },
+    {
+      "family": "family:automation-integration",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "兵部 / 工部 / 刑部",
+      "boundary": "Automation, integration, workflow orchestration, Spark mail, or file-organization candidate; broad operational changes still require dispatch boundaries.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["automation", "integration", "workflow", "orchestration", "spark mail", "file organization", "自动化", "集成", "工作流", "编排", "文件整理"],
+      "negative_triggers": []
+    },
+    {
+      "family": "family:design-frontend",
+      "recall_owners": ["太子", "中书省", "尚书省"],
+      "execution_owner": "礼部 / 工部",
+      "boundary": "Frontend design quality and UI implementation guidance candidate; app-specific design instructions remain binding.",
+      "phases": ["intake", "planning", "dispatch"],
+      "triggers": ["frontend", "web app", "component", "responsive", "css", "tailwind", "前端", "网页应用", "组件", "响应式", "界面实现"],
+      "negative_triggers": []
+    }
+  ]
+}

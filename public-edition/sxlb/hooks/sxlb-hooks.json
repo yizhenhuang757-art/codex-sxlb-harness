@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "hooks": [
+    {
+      "id": "taizi-intake-boundary",
+      "event": "taizi.intake",
+      "office": "太子/吏部",
+      "description": "Surface capability recall and intake boundary checks without granting execution authority.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": false,
+      "profiles": ["minimal", "standard", "strict"],
+      "timeout_seconds": 5,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "zhongshu-plan-precheck",
+      "event": "zhongshu.plan_ready",
+      "office": "中书省/门下省",
+      "description": "Check that a declared 中书方案 exposes required plan shape before review or dispatch.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "shangshu-dispatch-precheck",
+      "event": "shangshu.dispatch_ready",
+      "office": "尚书省/门下省",
+      "description": "Check dispatch readiness before execution begins.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "menxia-review-arrival",
+      "event": "menxia.review_ready",
+      "office": "门下省",
+      "description": "Route review-arrival advisories through existing department-owned arrival hooks.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": false,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "menxia-completion-arrival",
+      "event": "menxia.completion_ready",
+      "office": "门下省/刑部/礼部/户部",
+      "description": "Reuse department-owned arrival hooks before completion claims.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "reply-generation",
+      "event": "reply.substantive",
+      "office": "吏部",
+      "description": "Require the reply-generation hard gate before substantive SXLB output.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["minimal", "standard", "strict"],
+      "timeout_seconds": 5,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "case-pre-compact-state-packet",
+      "event": "case.pre_compact",
+      "office": "礼部/吏部",
+      "description": "Before compaction, generate a compact state packet so resume reads a small surface first.",
+      "script": "scripts/sxlb_state_packet.py",
+      "args": ["--write-default"],
+      "blocking": false,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 5,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "case-close-completion",
+      "event": "case.close",
+      "office": "门下省/礼部/吏部",
+      "description": "At close, surface completion and records-routing checks through the existing event surface.",
+      "script": "scripts/sxlb_event_router.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["standard", "strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "hook-graph-validation",
+      "event": "case.close",
+      "office": "刑部",
+      "description": "Validate the hook graph before final completion claims in strict profile.",
+      "script": "scripts/validate_sxlb_hooks.py",
+      "args": ["--json"],
+      "blocking": true,
+      "profiles": ["strict"],
+      "timeout_seconds": 10,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    },
+    {
+      "id": "external-capability-health",
+      "event": "taizi.intake",
+      "office": "兵部/吏部",
+      "description": "Expose low-risk external capability health at intake in strict profile.",
+      "script": "scripts/external_capability_health.py",
+      "args": ["--json"],
+      "blocking": false,
+      "profiles": ["strict"],
+      "timeout_seconds": 15,
+      "input_policy": {"max_bytes": 65536, "truncate": true}
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SXLB Agent Dispatch Check"
+  short_description: "Gate real multi-agent dispatch inside SXLB."
+  default_prompt: "Judge whether an active SXLB dispatch should use real subagents, then record admission, ownership, return, verification, and merge requirements."

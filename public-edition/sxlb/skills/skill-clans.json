@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "max_clans": 10,
+  "description": "Clan overlay for SXLB skill taxonomy. Clan is for human navigation and recall context; execution authority remains family/department-bound.",
+  "clans": [
+    {
+      "clan": "clan:governance-process",
+      "title": "治理与工作法",
+      "use_when": "处理 agent 自身的治理、流程、skill 管理、复核方法和 SXLB 案卷。",
+      "families": [
+        "family:sxlb-governance",
+        "family:skill-governance",
+        "family:superpowers",
+        "family:system",
+        "family:reference-experimental",
+        "family:reasoning-research"
+      ],
+      "active_skill_count": 30,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:vault-knowledge",
+      "title": "Vault 与知识库",
+      "use_when": "处理 Markdown vault、Daily/Weekly、内部 wiki、GPT 记录和 vault 写回。",
+      "families": [
+        "family:obsidian",
+        "family:daily-planning",
+        "family:wiki",
+        "family:gpt-record"
+      ],
+      "active_skill_count": 18,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:communication-mail",
+      "title": "沟通与邮件",
+      "use_when": "处理人物沟通证据库、邮件线程、Outlook 邮箱和沟通行动项。",
+      "families": [
+        "family:communication",
+        "family:plugin/outlook-email"
+      ],
+      "active_skill_count": 15,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:learning-research",
+      "title": "学习与研究",
+      "use_when": "处理 TOEFL、阅读研究、Zotero、NotebookLM 和文献证据。",
+      "families": [
+        "family:toefl",
+        "family:reading-research",
+        "family:plugin/zotero"
+      ],
+      "active_skill_count": 13,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:documents-data",
+      "title": "文档与数据",
+      "use_when": "处理 PDF、Word、PPT、表格、CSV、导出和正式文档产物。",
+      "families": [
+        "family:documents-media-data",
+        "family:publishing-export",
+        "family:plugin/documents",
+        "family:plugin/pdf",
+        "family:plugin/presentations",
+        "family:plugin/spreadsheets"
+      ],
+      "active_skill_count": 11,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:browser-automation-dev",
+      "title": "浏览器、自动化与开发协作",
+      "use_when": "处理浏览器验证、Chrome、Computer Use、文件整理、Spark、GitHub 和自动化集成。",
+      "families": [
+        "family:automation-integration",
+        "family:plugin/browser",
+        "family:plugin/chrome",
+        "family:plugin/computer-use",
+        "family:plugin/github"
+      ],
+      "active_skill_count": 11,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:design-creative",
+      "title": "设计与创作",
+      "use_when": "处理前端界面、产品设计、Figma、Canva、图像生成、文案润色和创意生产。",
+      "families": [
+        "family:design-frontend",
+        "family:creative-media",
+        "family:writing-polish",
+        "family:plugin/figma",
+        "family:plugin/product-design",
+        "family:plugin/canva",
+        "family:plugin/creative-production"
+      ],
+      "active_skill_count": 34,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    },
+    {
+      "clan": "clan:security",
+      "title": "安全",
+      "use_when": "处理安全扫描、威胁建模、攻击路径、漏洞修复和安全复核。",
+      "families": [
+        "family:plugin/codex-security"
+      ],
+      "active_skill_count": 8,
+      "boundary": "Clan is an agent-readable recall context layer; it does not grant execution authority."
+    }
+  ],
+  "max_clan_candidates": 2
+}

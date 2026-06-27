@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SXLB Hook Graph",
+  "type": "object",
+  "required": ["version", "hooks"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "event", "office", "script", "blocking", "profiles", "timeout_seconds"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
+          "event": {
+            "type": "string"
+          },
+          "office": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "profiles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["minimal", "standard", "strict"]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "matcher": {
+            "type": "object"
+          },
+          "input_policy": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
