@@ -1,5 +1,6 @@
 title: SXLB
 description: A text-first governance harness inspired by the Three Departments and Six Ministries.
+baseurl: "/codex-sxlb-harness"
 markdown: kramdown
 permalink: pretty
 exclude:
