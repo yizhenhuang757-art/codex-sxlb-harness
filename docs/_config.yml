@@ -1,0 +1,11 @@
+title: SXLB
+description: A text-first governance harness inspired by the Three Departments and Six Ministries.
+markdown: kramdown
+permalink: pretty
+exclude:
+  - ci
+  - plans
+  - audits
+  - checklists
+  - prompts
+  - release-notes

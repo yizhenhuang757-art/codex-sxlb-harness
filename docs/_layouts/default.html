@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  </head>
+  <body>
+    {% assign chinese = page.lang == 'zh-CN' %}
+    <header class="site-header">
+      <div class="shell header-content">
+        <a class="brand" href="{% if chinese %}{{ '/zh-CN/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">SXLB</a>
+        {% if page.alternate %}
+        <a class="language-switch" href="{{ page.alternate | relative_url }}">{% if chinese %}English{% else %}中文{% endif %}</a>
+        {% endif %}
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="{% if chinese %}主要导航{% else %}Primary navigation{% endif %}">
+      <div class="shell nav-links">
+        {% if chinese %}
+        <a href="{{ '/zh-CN/quickstart/' | relative_url }}">安装与快速开始</a>
+        <a href="{{ '/zh-CN/features/' | relative_url }}">效果与功能</a>
+        <a href="{{ '/zh-CN/workflow-reference/' | relative_url }}">工作流参考</a>
+        <a href="{{ '/zh-CN/three-departments-six-ministries/' | relative_url }}">三省六部</a>
+        <a href="{{ '/zh-CN/sxlb-mapping/' | relative_url }}">SXLB 映射</a>
+        {% else %}
+        <a href="{{ '/quickstart/' | relative_url }}">Quick start</a>
+        <a href="{{ '/features/' | relative_url }}">Outcomes & features</a>
+        <a href="{{ '/workflow-reference/' | relative_url }}">Workflow reference</a>
+        <a href="{{ '/three-departments-six-ministries/' | relative_url }}">Historical model</a>
+        <a href="{{ '/sxlb-mapping/' | relative_url }}">SXLB mapping</a>
+        {% endif %}
+      </div>
+    </nav>
+    <main class="shell content">
+      {{ content }}
+    </main>
+    <footer class="shell site-footer">
+      <p>{% if chinese %}SXLB 是受三省六部启发的现代治理工具；它不是对历史制度的一比一复刻。{% else %}SXLB is a modern governance harness inspired by—not identical to—the historical model of the Three Departments and Six Ministries.{% endif %}</p>
+    </footer>
+  </body>
+</html>
