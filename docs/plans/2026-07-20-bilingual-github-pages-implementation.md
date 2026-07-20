@@ -198,7 +198,7 @@ Run:
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tools.tests.test_check_docs_site
 PYTHONDONTWRITEBYTECODE=1 python3 tools/check_docs_site.py docs
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$PWD/public-edition/sxlb/scripts:$PWD/public-edition/sxlb/tests" python3 -m unittest discover -s public-edition/sxlb/tests
-rg -n -i 'yizhenhuang757|SXLB Contributors|sxlb-contributors|/Users/dage|iCloud|Codex_Worklogs|ChatGPT_Record|dage@192|gho_[A-Za-z0-9]+' --glob '!*.pyc' --glob '!**/__pycache__/**' .
+Run the repository's existing public-boundary scan using the split private-marker construction in `docs/ci/test-workflow.yml`.
 ```
 
 Expected: all tests pass; validator reports `Documentation site structure: OK`; the scan reports no matches.

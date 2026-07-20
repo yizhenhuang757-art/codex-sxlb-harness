@@ -34,6 +34,20 @@ class DocumentationSiteStructureTests(unittest.TestCase):
 
         self.assertEqual([], errors)
 
+    def test_reports_empty_required_page(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            for english_path, chinese_path in check_docs_site.REQUIRED_PAIRS:
+                for relative_path in (english_path, chinese_path):
+                    page = root / relative_path
+                    page.parent.mkdir(parents=True, exist_ok=True)
+                    page.write_text("# Documentation\n", encoding="utf-8")
+            (root / "zh-CN/sxlb-mapping.md").write_text("\n", encoding="utf-8")
+
+            errors = check_docs_site.validate(root)
+
+        self.assertIn("Required page is empty: zh-CN/sxlb-mapping.md", errors)
+
 
 if __name__ == "__main__":
     unittest.main()

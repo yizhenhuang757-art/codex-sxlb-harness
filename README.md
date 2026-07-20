@@ -4,8 +4,8 @@ SXLB 是一套以文本为先的治理工具：它帮助个人或团队把工作
 
 ## Start here / 从这里开始
 
-- [English documentation](https://yizhenhuang757-art.github.io/codex-sxlb-harness/)
-- [中文说明文档](https://yizhenhuang757-art.github.io/codex-sxlb-harness/zh-CN/)
+- [English documentation](docs/index.md)
+- [中文说明文档](docs/zh-CN/index.md)
 - [Quick start](docs/quickstart.md) / [快速开始](docs/zh-CN/quickstart.md)
 - [Outcomes and features](docs/features.md) / [效果与功能](docs/zh-CN/features.md)
 
