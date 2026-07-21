@@ -23,17 +23,23 @@
     <nav class="site-nav" aria-label="{% if chinese %}主要导航{% else %}Primary navigation{% endif %}">
       <div class="shell nav-links">
         {% if chinese %}
+        <a href="{{ '/zh-CN/why-sxlb/' | relative_url }}">为什么是 SXLB</a>
         <a href="{{ '/zh-CN/quickstart/' | relative_url }}">安装与快速开始</a>
         <a href="{{ '/zh-CN/features/' | relative_url }}">效果与功能</a>
         <a href="{{ '/zh-CN/workflow-reference/' | relative_url }}">工作流参考</a>
         <a href="{{ '/zh-CN/three-departments-six-ministries/' | relative_url }}">三省六部</a>
         <a href="{{ '/zh-CN/sxlb-mapping/' | relative_url }}">SXLB 映射</a>
+        <a href="{{ '/zh-CN/skill-directory/' | relative_url }}">技能目录</a>
+        <a href="{{ '/zh-CN/sources/' | relative_url }}">来源说明</a>
         {% else %}
+        <a href="{{ '/why-sxlb/' | relative_url }}">Why SXLB</a>
         <a href="{{ '/quickstart/' | relative_url }}">Quick start</a>
         <a href="{{ '/features/' | relative_url }}">Outcomes & features</a>
         <a href="{{ '/workflow-reference/' | relative_url }}">Workflow reference</a>
         <a href="{{ '/three-departments-six-ministries/' | relative_url }}">Historical model</a>
         <a href="{{ '/sxlb-mapping/' | relative_url }}">SXLB mapping</a>
+        <a href="{{ '/skill-directory/' | relative_url }}">Skill directory</a>
+        <a href="{{ '/sources/' | relative_url }}">Sources</a>
         {% endif %}
       </div>
     </nav>

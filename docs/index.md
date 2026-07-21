@@ -22,14 +22,14 @@ SXLB uses a text-first route for work that needs clear proposals, independent re
 
 ## Choose your path
 
-1. [Installation and quick start]({{ '/quickstart/' | relative_url }}) — install the two bundled skills and run a first case.
-2. [Outcomes and features]({{ '/features/' | relative_url }}) — see the practical control surfaces before learning the theory.
-3. [Workflow reference]({{ '/workflow-reference/' | relative_url }}) — use the proposal, review, dispatch, verification, and closure sequence.
+1. [Installation and quick start]({{ '/quickstart/' | relative_url }}): install the two bundled skills and run a first case.
+2. [Outcomes and features]({{ '/features/' | relative_url }}): see the practical control surfaces before learning the theory.
+3. [Workflow reference]({{ '/workflow-reference/' | relative_url }}): use the proposal, review, dispatch, verification, and closure sequence.
 
 ## Read more deeply when useful
 
 - [The Three Departments and Six Ministries]({{ '/three-departments-six-ministries/' | relative_url }}) introduces the historical administrative model.
-- [SXLB mapping and design rationale]({{ '/sxlb-mapping/' | relative_url }}) explains what SXLB borrows from that model—and what it deliberately does not reproduce.
+- [SXLB mapping and design rationale]({{ '/sxlb-mapping/' | relative_url }}) explains what SXLB borrows from that model and what it deliberately does not reproduce.
 - [Sources and relationships]({{ '/sources/' | relative_url }}) records the distinction between inspiration, editorial methods, public bundles, and host interfaces.
 
 The repository's [install draft]({{ '/install' | relative_url }}) and [portable workflow guide]({{ '/portable-workflows' | relative_url }}) remain available as detailed reference material.

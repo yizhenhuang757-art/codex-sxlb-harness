@@ -12,7 +12,9 @@ document.querySelectorAll("[data-directory-filter]").forEach((input) => {
       row.hidden = !matches;
       if (matches) visible += 1;
     });
-    count.textContent = `${visible} of ${rows.length} entries shown`;
+    count.textContent = document.documentElement.lang === "zh-CN"
+      ? `显示 ${visible} / ${rows.length} 条记录`
+      : `${visible} of ${rows.length} entries shown`;
   };
 
   input.addEventListener("input", update);

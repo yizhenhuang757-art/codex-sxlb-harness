@@ -22,9 +22,9 @@ SXLB 采用以文本为先的路径，适合需要清晰提案、独立复核、
 
 ## 按你的需要进入
 
-1. [安装与快速开始]({{ '/zh-CN/quickstart/' | relative_url }})——安装两个随包技能并运行第一个案卷。
-2. [效果与功能]({{ '/zh-CN/features/' | relative_url }})——在理解理论前，先查看实际可用的控制界面。
-3. [工作流参考]({{ '/zh-CN/workflow-reference/' | relative_url }})——使用提案、复核、派发、验证和结案的工作次序。
+1. [安装与快速开始]({{ '/zh-CN/quickstart/' | relative_url }})：安装两个随包技能并运行第一个案卷。
+2. [效果与功能]({{ '/zh-CN/features/' | relative_url }})：在理解理论前，先查看实际可用的控制界面。
+3. [工作流参考]({{ '/zh-CN/workflow-reference/' | relative_url }})：使用提案、复核、派发、验证和结案的工作次序。
 
 ## 有兴趣时再深入阅读
 

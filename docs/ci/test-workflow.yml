@@ -19,7 +19,10 @@ jobs:
           PYTHONPATH="$GITHUB_WORKSPACE/public-edition/sxlb/scripts:$GITHUB_WORKSPACE/public-edition/sxlb/tests" \
             python -m unittest discover -s "$GITHUB_WORKSPACE/public-edition/sxlb/tests"
       - name: Validate bilingual documentation structure
-        run: python tools/check_docs_site.py docs
+        run: |
+          python -m unittest tools.tests.test_check_docs_site tools.tests.test_generate_skill_directory
+          python tools/generate_skill_directory.py --check
+          python tools/check_docs_site.py docs
       - name: Scan private path patterns
         run: |
           private_user_path="/Users/"'dage'
