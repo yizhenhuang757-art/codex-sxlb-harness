@@ -18,6 +18,11 @@ REQUIRED_PAIRS = (
     ("sources.md", "zh-CN/sources.md"),
 )
 
+EDITORIAL_PROCESS_LANGUAGE = (
+    "Editorial methods used for this revision",
+    "本次修订使用的编辑方法",
+)
+
 
 def validate(root: Path) -> list[str]:
     """Return structure errors for the bilingual documentation pages."""
@@ -29,6 +34,19 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"Missing required page: {relative_path}")
             elif not page.read_text(encoding="utf-8").strip():
                 errors.append(f"Required page is empty: {relative_path}")
+    return errors
+
+
+def validate_public_page_language(root: Path) -> list[str]:
+    """Reject public copy that describes how the documentation was edited."""
+    errors: list[str] = []
+    for relative_path in ("sources.md", "zh-CN/sources.md"):
+        page = root / relative_path
+        if not page.is_file():
+            continue
+        content = page.read_text(encoding="utf-8")
+        if any(phrase in content for phrase in EDITORIAL_PROCESS_LANGUAGE):
+            errors.append(f"Public page explains its editorial process: {relative_path}")
     return errors
 
 
@@ -50,7 +68,7 @@ def validate_source_records(records: list[dict[str, object]]) -> list[str]:
 
 def main() -> int:
     root = Path(sys.argv[1]) if len(sys.argv) == 2 else Path("docs")
-    errors = validate(root)
+    errors = validate(root) + validate_public_page_language(root)
     if errors:
         print("\n".join(errors))
         return 1

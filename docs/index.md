@@ -30,6 +30,6 @@ SXLB uses a text-first route for work that needs clear proposals, independent re
 
 - [The Three Departments and Six Ministries]({{ '/three-departments-six-ministries/' | relative_url }}) introduces the historical administrative model.
 - [SXLB mapping and design rationale]({{ '/sxlb-mapping/' | relative_url }}) explains what SXLB borrows from that model and what it deliberately does not reproduce.
-- [Sources and relationships]({{ '/sources/' | relative_url }}) records the distinction between inspiration, editorial methods, public bundles, and host interfaces.
+- [Sources and relationships]({{ '/sources/' | relative_url }}) records the distinction between inspiration, public bundles, and host interfaces.
 
 The repository's [install draft]({{ '/install' | relative_url }}) and [portable workflow guide]({{ '/portable-workflows' | relative_url }}) remain available as detailed reference material.
