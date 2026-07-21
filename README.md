@@ -2,12 +2,17 @@
 
 SXLB 是一套以文本为先的治理工具：它帮助个人或团队把工作组织为可检查的提案、复核、执行、验证与留痕链条。
 
+SXLB 是面向 Codex 的独立实现，受到 [cft0808/edict](https://github.com/cft0808/edict) 及其[任务派发架构](https://github.com/cft0808/edict/blob/main/docs/task-dispatch-architecture.md)启发。它不内置、不 fork，也不复刻 Edict 或 OpenClaw 的代码。项目关系与设计差异见[为什么还有 SXLB](docs/zh-CN/why-sxlb.md)和[Why SXLB exists](docs/why-sxlb.md)。
+
 ## Start here / 从这里开始
 
 - [English documentation](docs/index.md)
 - [中文说明文档](docs/zh-CN/index.md)
 - [Quick start](docs/quickstart.md) / [快速开始](docs/zh-CN/quickstart.md)
 - [Outcomes and features](docs/features.md) / [效果与功能](docs/zh-CN/features.md)
+- [Why SXLB exists](docs/why-sxlb.md) / [为什么还有 SXLB](docs/zh-CN/why-sxlb.md)
+- [Office and skill directory](docs/skill-directory.md) / [部门与技能目录](docs/zh-CN/skill-directory.md)
+- [Sources and relationships](docs/sources.md) / [来源与关系说明](docs/zh-CN/sources.md)
 
 The documentation leads with installation and use. It then explains the workflow, the historical model of the Three Departments and Six Ministries, and the modern SXLB mapping.
 

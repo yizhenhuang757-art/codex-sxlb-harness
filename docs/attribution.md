@@ -1,6 +1,6 @@
 # Attribution
 
-This public edition should use conservative attribution language.
+SXLB is an independent Codex skill harness inspired by the 三省六部 multi-agent orchestration pattern in `cft0808/edict` and its task dispatch architecture. It does not vendor, fork, or reproduce Edict or OpenClaw source code.
 
 ## Primary Inspiration
 

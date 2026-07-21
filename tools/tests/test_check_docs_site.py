@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 
 TOOLS_DIR = Path(__file__).resolve().parents[1]
+REPO_ROOT = TOOLS_DIR.parent
 sys.path.insert(0, str(TOOLS_DIR))
 
 import check_docs_site
@@ -45,6 +46,20 @@ class DocumentationSiteStructureTests(unittest.TestCase):
             ["External source requires HTTPS URL: missing-link"],
             errors,
         )
+
+    def test_home_pages_restore_edict_attribution_and_comparison_route(self) -> None:
+        expected = {
+            "docs/index.md": ("https://github.com/cft0808/edict", "'/why-sxlb/'"),
+            "docs/zh-CN/index.md": ("https://github.com/cft0808/edict", "'/zh-CN/why-sxlb/'"),
+            "docs/why-sxlb.md": ("independent implementation", "does not vendor or fork"),
+            "docs/zh-CN/why-sxlb.md": ("独立实现", "不内置、不 fork"),
+        }
+        for relative_path, phrases in expected.items():
+            page = REPO_ROOT / relative_path
+            self.assertTrue(page.is_file(), relative_path)
+            content = page.read_text(encoding="utf-8")
+            for phrase in phrases:
+                self.assertIn(phrase, content, relative_path)
 
     def test_reports_missing_language_counterpart(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
