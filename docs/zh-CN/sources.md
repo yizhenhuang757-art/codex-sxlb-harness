@@ -3,26 +3,18 @@ layout: default
 title: 来源与关系说明
 lang: zh-CN
 alternate: /sources/
-description: 说明 SXLB 的灵感来源、方法参考、公共包、宿主接口与插件能力族。
+description: 说明 SXLB 的灵感来源、公共包、宿主接口与插件能力族。
 ---
 
 # 来源与关系说明
 
-本页区分灵感来源、方法参考、随包代码、宿主接口和插件能力族。一个链接说明存在已记录的关系，不自动证明 SXLB 包含该项目的代码。
+本页区分灵感来源、随包代码、宿主接口和插件能力族。一个链接说明存在已记录的关系，不自动证明 SXLB 包含该项目的代码。
 
 ## 原始灵感
 
 [cft0808/edict](https://github.com/cft0808/edict) 是 SXLB 使用三省六部来表达智能体分工时的主要灵感来源。其[任务派发架构](https://github.com/cft0808/edict/blob/main/docs/task-dispatch-architecture.md)为“已批准任务如何成为有边界的派发”提供了参考问题。
 
 SXLB 是独立实现的 Codex 技能工具。它不内置、不 fork、也不复刻 Edict 或 OpenClaw 的源代码。
-
-## 本次修订使用的编辑方法
-
-- [Humanizer-zh](https://github.com/op7418/Humanizer-zh)用于中文编辑审核。
-- [blader/humanizer](https://github.com/blader/humanizer)用于英文编辑审核。
-- [stop-slop](https://github.com/hardikpandya/stop-slop)是 Humanizer-zh 标注的实用参考。
-
-这些项目只用于编辑审核，不提供 SXLB 的运行逻辑。
 
 ## 公共包
 

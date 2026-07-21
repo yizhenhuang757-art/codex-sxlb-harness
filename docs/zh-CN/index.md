@@ -30,6 +30,6 @@ SXLB 采用以文本为先的路径，适合需要清晰提案、独立复核、
 
 - [三省六部]({{ '/zh-CN/three-departments-six-ministries/' | relative_url }})介绍这套历史行政模型。
 - [SXLB 映射与设计逻辑]({{ '/zh-CN/sxlb-mapping/' | relative_url }})说明 SXLB 从该模型中借鉴了什么，又刻意没有复刻什么。
-- [来源与关系说明]({{ '/zh-CN/sources/' | relative_url }})记录灵感来源、编辑方法、公共包和宿主接口之间的区别。
+- [来源与关系说明]({{ '/zh-CN/sources/' | relative_url }})记录灵感来源、公共包和宿主接口之间的区别。
 
 仓库中的[安装草案]({{ '/install' | relative_url }})和[可移植工作流指南]({{ '/portable-workflows' | relative_url }})仍可作为详细参考资料。

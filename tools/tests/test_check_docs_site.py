@@ -61,6 +61,22 @@ class DocumentationSiteStructureTests(unittest.TestCase):
             for phrase in phrases:
                 self.assertIn(phrase, content, relative_path)
 
+    def test_rejects_public_pages_that_explain_their_editorial_process(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            sources = root / "sources.md"
+            sources.write_text(
+                "# Sources\n\n## Editorial methods used for this revision\n",
+                encoding="utf-8",
+            )
+
+            errors = check_docs_site.validate_public_page_language(root)
+
+        self.assertEqual(
+            ["Public page explains its editorial process: sources.md"],
+            errors,
+        )
+
     def test_reports_missing_language_counterpart(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
