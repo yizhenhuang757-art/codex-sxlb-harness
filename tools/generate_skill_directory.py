@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import sys
 from pathlib import Path
@@ -90,8 +91,8 @@ def source_cell(row: dict[str, object], language: str) -> str:
     note = str(row["source_note"])
     url = row["source_url"]
     if isinstance(url, str) and url:
-        return f"{relation}: [{note}]({url})"
-    return f"{relation}: {note}"
+        return f'{html.escape(relation)}: <a href="{html.escape(url, quote=True)}">{html.escape(note)}</a>'
+    return f"{html.escape(relation)}: {html.escape(note)}"
 
 
 def render_page(rows: list[dict[str, object]], language: str) -> str:
@@ -113,7 +114,7 @@ def render_page(rows: list[dict[str, object]], language: str) -> str:
     for row in rows:
         search_text = " ".join(str(row.get(key, "")) for key in ("offices", "skill_id", "family", "lifecycle", "note", "source_relation", "source_note")).lower()
         table_rows.append(
-            f'<tr data-search="{search_text}"><td>{row["offices"]}</td><td><code>{row["skill_id"]}</code></td><td>{row["lifecycle"]}</td><td>{row["source"]}</td><td>{source_cell(row, language)}</td><td>{row["note"]}</td></tr>'
+            f'<tr data-search="{html.escape(search_text, quote=True)}"><td>{html.escape(str(row["offices"]))}</td><td><code>{html.escape(str(row["skill_id"]))}</code></td><td>{html.escape(str(row["lifecycle"]))}</td><td>{html.escape(str(row["source"]))}</td><td>{source_cell(row, language)}</td><td>{html.escape(str(row["note"]))}</td></tr>'
         )
     return "\n".join(
         [
@@ -130,25 +131,18 @@ def render_page(rows: list[dict[str, object]], language: str) -> str:
             "",
             intro,
             "",
+            ("查看[来源说明]({{ '/zh-CN/sources/' | relative_url }})，了解项目、方法和接口之间的区别。" if chinese else "Read the [source notes]({{ '/sources/' | relative_url }}) for the distinction between projects, methods, and interfaces."),
+            "",
             '<label class="directory-filter-label" for="directory-filter">' + ("筛选目录" if chinese else "Filter directory") + '</label>',
             '<input id="directory-filter" data-directory-filter type="search" placeholder="' + ("输入部门、技能或来源" if chinese else "Type an office, skill, or source") + '">',
             '<p id="directory-count" aria-live="polite"></p>',
             "",
-            "| " + " | ".join(headers) + " |",
-            "| " + " | ".join(["---"] * len(headers)) + " |",
-            *[
-                "| " + " | ".join(
-                    [
-                        str(row["offices"]),
-                        f'`{row["skill_id"]}`',
-                        str(row["lifecycle"]),
-                        str(row["source"]),
-                        source_cell(row, language),
-                        str(row["note"]),
-                    ]
-                ) + " |"
-                for row in rows
-            ],
+            '<div class="directory-table-wrap">',
+            '<table data-directory-table>',
+            '<thead><tr>' + "".join(f"<th>{html.escape(header)}</th>" for header in headers) + '</tr></thead>',
+            '<tbody>',
+            *table_rows,
+            '</tbody></table></div>',
         ]
     ) + "\n"
 

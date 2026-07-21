@@ -40,6 +40,10 @@ pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--line); background
 blockquote, .callout { margin: 1.5rem 0; padding: 1rem 1.2rem; border-left: .3rem solid var(--accent); background: var(--accent-soft); }
 table { width: 100%; border-collapse: collapse; }
 th, td { padding: .65rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.directory-filter-label { display: block; margin-bottom: .35rem; font-family: ui-sans-serif, system-ui, sans-serif; font-weight: 650; }
+[data-directory-filter] { width: 100%; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: .25rem; font: inherit; }
+.directory-table-wrap { overflow-x: auto; margin: 1rem 0 2rem; }
+.directory-table-wrap table { min-width: 58rem; font-size: .9rem; }
 
 .site-footer { padding: 1.5rem 0 3rem; color: var(--muted); font-size: .9rem; }
 

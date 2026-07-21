@@ -33,7 +33,7 @@ class SkillDirectoryGeneratorTests(unittest.TestCase):
 
         page = generate_skill_directory.render_page(rows, "en")
 
-        self.assertIn("[Public upstream project](https://github.com/op7418/Humanizer-zh)", page)
+        self.assertIn('href="https://github.com/op7418/Humanizer-zh"', page)
         self.assertIn("humanizer-zh", page)
         self.assertIn("礼部", page)
 
@@ -57,6 +57,26 @@ class SkillDirectoryGeneratorTests(unittest.TestCase):
                     }
                 },
             )
+
+    def test_directory_includes_filter_and_source_page_link(self) -> None:
+        rows = generate_skill_directory.normalize_records(
+            [
+                {
+                    "skill_id": "sxlb",
+                    "offices": "太子",
+                    "lifecycle": "active",
+                    "source": "public-bundle",
+                    "note": "Bundled harness",
+                }
+            ],
+            {},
+        )
+
+        page = generate_skill_directory.render_page(rows, "zh-CN")
+
+        self.assertIn("data-directory-filter", page)
+        self.assertIn("/zh-CN/sources/", page)
+        self.assertIn('<tr data-search="太子 sxlb', page)
 
 
 if __name__ == "__main__":
