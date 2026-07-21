@@ -1,0 +1,56 @@
+{
+  "skill_overrides": {
+    "agent-reach": {
+      "source_relation": "external-reference",
+      "source_url": "https://github.com/Panniantong/Agent-Reach",
+      "source_note": "Agent-Reach"
+    },
+    "humanizer-zh": {
+      "source_relation": "external-reference",
+      "source_url": "https://github.com/op7418/Humanizer-zh",
+      "source_note": "Humanizer-zh"
+    },
+    "sxlb": {
+      "source_relation": "public-bundle",
+      "source_url": null,
+      "source_note": "Bundled and maintained in this public repository."
+    },
+    "sxlb-agent-dispatch-check": {
+      "source_relation": "public-bundle",
+      "source_url": null,
+      "source_note": "Bundled companion skill maintained in this public repository."
+    }
+  },
+  "project_sources": [
+    {
+      "name": "cft0808/edict",
+      "relation": "original-inspiration",
+      "url": "https://github.com/cft0808/edict",
+      "note": "The public SXLB design cites this multi-agent orchestration project as its primary inspiration."
+    },
+    {
+      "name": "Edict task dispatch architecture",
+      "relation": "architecture-reference",
+      "url": "https://github.com/cft0808/edict/blob/main/docs/task-dispatch-architecture.md",
+      "note": "Reference for the dispatch question, not a source of vendored code."
+    },
+    {
+      "name": "blader/humanizer",
+      "relation": "method-reference",
+      "url": "https://github.com/blader/humanizer",
+      "note": "English editorial method used for this documentation revision."
+    },
+    {
+      "name": "hardikpandya/stop-slop",
+      "relation": "method-reference",
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "note": "Practical editing-reference project cited by Humanizer-zh."
+    },
+    {
+      "name": "op7418/Humanizer-zh",
+      "relation": "method-reference",
+      "url": "https://github.com/op7418/Humanizer-zh",
+      "note": "Chinese editorial method used for this documentation revision."
+    }
+  ]
+}
