@@ -13,6 +13,9 @@ REQUIRED_PAIRS = (
     ("workflow-reference.md", "zh-CN/workflow-reference.md"),
     ("three-departments-six-ministries.md", "zh-CN/three-departments-six-ministries.md"),
     ("sxlb-mapping.md", "zh-CN/sxlb-mapping.md"),
+    ("why-sxlb.md", "zh-CN/why-sxlb.md"),
+    ("skill-directory.md", "zh-CN/skill-directory.md"),
+    ("sources.md", "zh-CN/sources.md"),
 )
 
 
@@ -26,6 +29,22 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"Missing required page: {relative_path}")
             elif not page.read_text(encoding="utf-8").strip():
                 errors.append(f"Required page is empty: {relative_path}")
+    return errors
+
+
+def validate_source_records(records: list[dict[str, object]]) -> list[str]:
+    """Return errors for source claims used in public skill documentation."""
+    errors: list[str] = []
+    for record in records:
+        skill_id = str(record.get("skill_id", "<unknown>"))
+        relation = record.get("source_relation")
+        source_url = record.get("source_url")
+        source_note = str(record.get("source_note", "")).strip()
+        if relation in {"external-reference", "upstream-project"}:
+            if not isinstance(source_url, str) or not source_url.startswith("https://"):
+                errors.append(f"External source requires HTTPS URL: {skill_id}")
+        elif not source_url and not source_note:
+            errors.append(f"Source relation requires note or URL: {skill_id}")
     return errors
 
 

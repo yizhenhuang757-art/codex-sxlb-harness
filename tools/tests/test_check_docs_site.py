@@ -12,6 +12,40 @@ import check_docs_site
 
 
 class DocumentationSiteStructureTests(unittest.TestCase):
+    def test_requires_new_bilingual_source_transparency_pages(self) -> None:
+        self.assertIn(("why-sxlb.md", "zh-CN/why-sxlb.md"), check_docs_site.REQUIRED_PAIRS)
+        self.assertIn(("skill-directory.md", "zh-CN/skill-directory.md"), check_docs_site.REQUIRED_PAIRS)
+        self.assertIn(("sources.md", "zh-CN/sources.md"), check_docs_site.REQUIRED_PAIRS)
+
+    def test_validates_declared_source_relationships(self) -> None:
+        errors = check_docs_site.validate_source_records(
+            [
+                {
+                    "skill_id": "humanizer-zh",
+                    "source_relation": "external-reference",
+                    "source_url": "https://github.com/op7418/Humanizer-zh",
+                    "source_note": "Chinese editorial skill",
+                },
+                {
+                    "skill_id": "plugin/example",
+                    "source_relation": "plugin-family",
+                    "source_url": None,
+                    "source_note": "Supplied by the host environment.",
+                },
+                {
+                    "skill_id": "missing-link",
+                    "source_relation": "external-reference",
+                    "source_url": None,
+                    "source_note": "",
+                },
+            ]
+        )
+
+        self.assertEqual(
+            ["External source requires HTTPS URL: missing-link"],
+            errors,
+        )
+
     def test_reports_missing_language_counterpart(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
